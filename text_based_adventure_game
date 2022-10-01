@@ -1,0 +1,75 @@
+#!/bin/bash
+
+# Color definitions
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+NC='\033[0m' # No Color
+
+ROOT_DIR=$(pwd)
+GAME_DIR="$ROOT_DIR/adventure_game"
+
+# Check for existence of Virtual Environment
+function check_for_virtual_environment() {
+    if [ ! -d "$ROOT_DIR/venv" ] ; then
+        # If not found create one
+        echo -e "${GREEN}Creating Virtual Environment\n${NC}"
+        python -m venv venv
+    else
+        # If it exists inform the user
+        echo -e "${GREEN}Found existing Virtual Environment\n${NC}"
+    fi
+}
+
+# Activate Virtual Environment
+function activate_virtual_environment() {
+    echo -e "${GREEN}Activating Virtual Environment\n${NC}"
+    source "$ROOT_DIR/venv/bin/activate"
+}
+
+# Get current Virtual Environment name
+function get_virtual_environment() {
+    echo -e "${GREEN}Current Virtual Environment\n${NC}"
+    echo "$VIRTUAL_ENV"
+}
+
+# Run the setup.py script
+function run_setup() {
+    echo -e "${GREEN}\nRunning setup.py\n${NC}"
+    python "$GAME_DIR/utils/setup.py" "$ROOT_DIR"
+}
+
+# Run initialization
+function run_init() {
+    check_for_virtual_environment
+    activate_virtual_environment
+    get_virtual_environment
+    run_setup
+}
+
+# Run the main.py script
+function run_main() {
+    echo -e "${GREEN}\nRunning main.py\n${NC}"
+    sleep 3;
+    # clear;
+    python "$GAME_DIR/main.py" "$@"
+}
+
+
+
+# Run the whole project
+function run() {
+    case "$#" in
+        0|2)
+            run_init
+            run_main "$@"
+        ;;
+        1)
+            echo -e "${RED}One argument is missing!\n${NC}"
+        ;;
+        *)
+            echo -e "${RED}Too many arguments!\n${NC}"
+        ;;
+    esac
+}
+
+run "$@"
