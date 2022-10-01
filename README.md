@@ -23,7 +23,7 @@ To get a local copy up and running follow these simple steps.
    ```sh
    git clone https://github.com/Raychani1/Text_Based_Adventure_Game.git
    ```
-2. Navigate to the project folder and call the Executor script. If you don't specify both files the program takes the default files from the  [data]() folder.
+2. Navigate to the project folder and call the Executor script. If you don't specify both files the program takes the default files from the  [data](https://github.com/Raychani1/Text_Based_Adventure_Game/tree/main/adventure_game/data) folder.
 
     On Linux:
    ```sh
@@ -37,7 +37,7 @@ To get a local copy up and running follow these simple steps.
 
 ## **License**
 
-Distributed under the **MIT License**. See [LICENSE]() for more information.
+Distributed under the **MIT License**. See [LICENSE](https://github.com/Raychani1/Text_Based_Adventure_Game/blob/main/LICENSE) for more information.
 
 [Python]: https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54
 [Python-url]: https://www.python.org/
