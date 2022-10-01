@@ -10,10 +10,10 @@ GAME_DIR="$ROOT_DIR/adventure_game"
 
 # Check for existence of Virtual Environment
 function check_for_virtual_environment() {
-    if [ ! -d "$ROOT_DIR/venv" ] ; then
+    if [ ! -d "$ROOT_DIR/venv-linux" ] ; then
         # If not found create one
         echo -e "${GREEN}Creating Virtual Environment\n${NC}"
-        python -m venv venv
+        python -m venv venv-linux
     else
         # If it exists inform the user
         echo -e "${GREEN}Found existing Virtual Environment\n${NC}"
@@ -23,7 +23,7 @@ function check_for_virtual_environment() {
 # Activate Virtual Environment
 function activate_virtual_environment() {
     echo -e "${GREEN}Activating Virtual Environment\n${NC}"
-    source "$ROOT_DIR/venv/bin/activate"
+    source "$ROOT_DIR/venv-linux/bin/activate"
 }
 
 # Get current Virtual Environment name
